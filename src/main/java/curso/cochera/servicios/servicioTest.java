@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class servicioTest {
 
-    Descuentos testRepositorio  (String codigo){};
+    //Descuentos testRepositorio  (String codigo){};
 
 
 }
