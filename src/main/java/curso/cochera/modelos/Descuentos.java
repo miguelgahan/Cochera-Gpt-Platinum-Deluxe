@@ -1,9 +1,7 @@
 package curso.cochera.modelos;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -11,6 +9,8 @@ import lombok.Data;
 @Table(name = "descuentos")
 
 public class Descuentos {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Integer id;
 

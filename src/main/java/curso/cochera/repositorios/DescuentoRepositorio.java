@@ -21,7 +21,7 @@ public interface DescuentoRepositorio extends JpaRepository <Descuentos,Integer>
 
 
     @Query(value = "SELECT * FROM descuentos WHERE descuentos.codigo = ?1", nativeQuery = true)
-    Descuentos getDescuentosPorCodigo(String codigo);
+    Descuentos buscarDescuentosPorCodigo(String codigo);
 
 
 
