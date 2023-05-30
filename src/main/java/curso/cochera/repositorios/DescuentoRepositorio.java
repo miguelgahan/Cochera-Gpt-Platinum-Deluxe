@@ -24,5 +24,9 @@ public interface DescuentoRepositorio extends JpaRepository <Descuentos,Integer>
     Descuentos buscarDescuentosPorCodigo(String codigo);
 
 
-
+    @Query(value = "SELECT * FROM descuentos WHERE descuentos.id > ?1 AND descuentos.porcentaje > ?2", nativeQuery = true)
+    List<Descuentos> getAllDescuentosIdMayorYPorcentajeMayor(Integer id,Integer porcentaje);
 }
+
+
+

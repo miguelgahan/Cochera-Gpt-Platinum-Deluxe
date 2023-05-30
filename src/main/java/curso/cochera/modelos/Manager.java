@@ -7,7 +7,7 @@ public class Manager {
 
     List<ParkingSlot> slots;
     List<Descuentos> descuentos;
-    List<CategoriaVehiculo> categorias;
+    List<Categoria> categorias;
     Precios precios;
     LocalDateTime reloj;
 

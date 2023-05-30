@@ -1,24 +1,38 @@
 package curso.cochera.modelos;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+
+
+@Data
+@Entity
+@Table(name = "vehiculos")
 
 public class Vehiculo {
 
+    @Id
+    @Column(name = "id")
+    Integer id;
+    @Column(name = "ingreso")
     LocalDateTime ingreso;
     LocalDateTime egreso;
+    @Column(name = "patente")
     String patente;
     Double montoAcumulado;
-    CategoriaVehiculo categoriaVehiculo;
+    @Column(name = "categoria")
+    String codigoCategoria;
+
+    Categoria categoriaVehiculo;
 
 
 // tabla de vehiculos que tenga id patente ingreso categoria.
 
-    public Vehiculo(LocalDateTime ingreso, String patente, CategoriaVehiculo categoriaVehiculo){
-        this.ingreso = ingreso;
-        this.patente = patente;
-        this.categoriaVehiculo = categoriaVehiculo;
-    };
+
 
 
     public LocalDateTime getIngreso(){
@@ -43,7 +57,7 @@ public class Vehiculo {
     public void setMontoAcumulado(Double montoAcumulado){this.montoAcumulado = montoAcumulado;};
 
 
-    public void calcularMontoAcumulado() {
+  /*  public void calcularMontoAcumulado() {
 
         Double plataPorSemanas = 0d;
         Double plataPorMeses = 0d;
@@ -89,6 +103,8 @@ public class Vehiculo {
 
 
     }
+
+   */
 
 
 

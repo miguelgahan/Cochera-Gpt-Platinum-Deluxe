@@ -10,7 +10,7 @@ import lombok.Data;
 
 public class Descuentos {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     Integer id;
 
@@ -18,12 +18,22 @@ public class Descuentos {
     String codigo;
 
     @Column(name = "porcentaje")
-    Double porcentajeDescuento;
+    Integer porcentajeDescuento;
 
     @Column(name = "descripcion")
     String descripcion;
 
 
+    public Descuentos(){};
+    public Descuentos(String codigo, Integer porcentajeDescuento, String descripcion, Integer id){
+        this.codigo = codigo;
+        this.porcentajeDescuento = porcentajeDescuento;
+        this.descripcion = descripcion;
+        this.id = id;
+
+    }
+
+    //Hay que modificar la cuenta.
    public Double calcularDescuento (Double montoAcumulado){
 
        Double montoConDescuento = 0d;
