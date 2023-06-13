@@ -20,14 +20,14 @@ public class Vehiculo {
     Integer id;
     @Column(name = "ingreso")
     LocalDateTime ingreso;
-    LocalDateTime egreso;
+   // LocalDateTime egreso;
     @Column(name = "patente")
     String patente;
-    Double montoAcumulado;
+    //Double montoAcumulado;
     @Column(name = "categoria")
     String codigoCategoria;
 
-    Categoria categoriaVehiculo;
+    //Categoria categoriaVehiculo;
 
 
 // tabla de vehiculos que tenga id patente ingreso categoria.
@@ -41,7 +41,7 @@ public class Vehiculo {
 
 
 
-    public void setEgreso(LocalDateTime egreso){
+  /*  public void setEgreso(LocalDateTime egreso){
         this.egreso = egreso;
     };
 
@@ -55,7 +55,7 @@ public class Vehiculo {
 
 
     public void setMontoAcumulado(Double montoAcumulado){this.montoAcumulado = montoAcumulado;};
-
+*/
 
   /*  public void calcularMontoAcumulado() {
 

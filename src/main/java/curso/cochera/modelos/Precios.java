@@ -1,10 +1,29 @@
 package curso.cochera.modelos;
 
-public class Precios {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
+@Data
+@Entity
+@Table (name = "precios")
+
+public class Precios {
+    @Id
+    @Column (name ="id")
+    Integer id;
+
+    @Column (name = "codigo")
+    String codigo;
+    @Column (name = "precioHora")
     Double precioHora;
+    @Column (name = "precioDia")
     Double precioDia;
+    @Column (name = "precioSemana")
     Double precioSemana;
+    @Column (name = "precioMes")
     Double precioMes;
 
     public Precios(Double precioHora, Double precioDia, Double precioSemana, Double precioMes){

@@ -29,7 +29,7 @@ public class ServicioCategorias {
         if(codigo == null || codigo.isEmpty()) return;
         Categoria imprimirCategorias = categoriaRepositorio.buscarCategoriaPorCodigo(codigo);
         if(imprimirCategorias != null) System.out.println(imprimirCategorias);
-        else System.out.println("La categoria: "+ codigo+ " no existe");
+        else System.out.println("La categoria: "+codigo+ " no existe");
     };
 
 

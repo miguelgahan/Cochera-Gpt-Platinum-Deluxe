@@ -7,7 +7,7 @@ public class ParkingSlot {
 
     Integer id;
     List<Vehiculo> vehiculos;
-    Categoria categoriaVehiculo;
+    //Categoria categoriaVehiculo;
     Integer capacidadDisponible;
 
     Estado estado;
@@ -20,7 +20,7 @@ public class ParkingSlot {
         return vehiculos;
     }
 
-    public Categoria getCategoriaVehiculo(){
+   /* public Categoria getCategoriaVehiculo(){
         return this.categoriaVehiculo;
     };
 
@@ -52,6 +52,6 @@ public class ParkingSlot {
     public void setEstado(Estado estado){
         this.estado = estado;
     };
-
+*/
 };
 

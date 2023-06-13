@@ -11,11 +11,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 public class CocheraApplication {
 @Autowired
-static  ServicioCategorias servicioCategorias;
-//static  ServicioVehiculos servicioVehiculos;
+//static  ServicioCategorias servicioCategorias;
+static  ServicioVehiculos servicioVehiculos;
 //static ServicioDescuentos servicioDescuentos;
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(CocheraApplication.class, args);
@@ -24,9 +26,9 @@ static  ServicioCategorias servicioCategorias;
 
 		//ServicioDescuentos servicioDescuentos = context.getBean(ServicioDescuentos.class);
 
-		ServicioCategorias servicioCategorias = context.getBean(ServicioCategorias.class);
+		//ServicioCategorias servicioCategorias = context.getBean(ServicioCategorias.class);
 
-		//ServicioVehiculos servicioVehiculos = context.getBean(ServicioVehiculos.class);
+		ServicioVehiculos servicioVehiculos = context.getBean(ServicioVehiculos.class);
 
 		Descuentos newDescuento = new Descuentos();
 		newDescuento.setId(8);
@@ -49,7 +51,16 @@ static  ServicioCategorias servicioCategorias;
 
 
 
-		servicioCategorias.imprimirPorCodigo("asfjas144");
+		//servicioCategorias.imprimirPorCodigo("asfjas144");
+
+		LocalDateTime horario = LocalDateTime.now();
+
+		//servicioVehiculos.ingresoDeVehiculo(1,"abc123", horario,"aa11");
+		//servicioVehiculos.ingresoDeVehiculo(2,"bcd234", horario,"bb22");
+
+
+		servicioVehiculos.imprimirAllVehiculos();
+
 
 
 
