@@ -2,7 +2,7 @@ package curso.cochera.servicios;
 
 
 import curso.cochera.modelos.Descuentos;
-import curso.cochera.repositorios.DescuentoRepositorio;
+import curso.cochera.repositorios.RepositorioDescuentos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,28 +11,30 @@ import java.util.List;
 @Service
 public class ServicioDescuentos {
 
-    private DescuentoRepositorio descuentoRepositorio;
+    private RepositorioDescuentos descuentoRepositorio;
 
     @Autowired
-    ServicioDescuentos(DescuentoRepositorio repo){
+    ServicioDescuentos(RepositorioDescuentos repo){
         this.descuentoRepositorio = repo;
     }
 
-    public void imprimirDescuentos(){
+    public List<Descuentos> imprimirDescuentos(){
         List<Descuentos> descuentosEnLaBase = descuentoRepositorio.getAllDescuentos();
         System.out.println(descuentosEnLaBase);
+        return descuentosEnLaBase;
     };
 
-    public void nuevoDescuento(Descuentos nuevoDescuento){
-        if (nuevoDescuento == null) return;
+    public boolean nuevoDescuento(Descuentos nuevoDescuento){
+        if (nuevoDescuento == null) return false;
         Integer porcentaje = nuevoDescuento.getPorcentajeDescuento() ;
-        if (1 >  porcentaje || 100 < porcentaje) return;
+        if (1 >  porcentaje || 100 < porcentaje) return false;
         //Limitamos la descripciona a 80 caracteres.
         if(nuevoDescuento.getDescripcion().length()> 80){
           nuevoDescuento.setDescripcion(nuevoDescuento.getDescripcion().substring(0, 79));
         }
         // esta funcion save viene con el springboot..
         descuentoRepositorio.save(nuevoDescuento);
+        return true;
 
     }
 
@@ -57,4 +59,17 @@ public class ServicioDescuentos {
         }
         descuentoRepositorio.save(descuentoModificado);
     }
+
+    public boolean borrarDescuento(Descuentos descuento){
+        if(descuento != null) {
+            descuentoRepositorio.delete(descuento);
+            return true;
+            //descuentoRepositorio.eliminarDescuentoPorCodigo(codigo);
+        }
+        return false;
+    };
+
 }
+
+//Hacer controlador de categorias
+//Hacer put de actualizarDescuentoPorCodigo

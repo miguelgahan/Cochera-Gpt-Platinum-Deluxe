@@ -1,6 +1,6 @@
 package curso.cochera.repositorios;
 
-import curso.cochera.modelos.Categoria;
+import curso.cochera.modelos.Categorias;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,13 +9,13 @@ import java.util.List;
 
 @Repository
 
-public interface CategoriaRepositorio extends JpaRepository<Categoria,Integer> {
+public interface RepositorioCategorias extends JpaRepository<Categorias,Integer> {
 
     @Query(value = "SELECT * FROM categorias", nativeQuery = true)
-    List<Categoria> getAllCategorias();
+    List<Categorias> getAllCategorias();
 
     @Query(value= "SELECT * FROM categorias WHERE codigo=?1", nativeQuery = true)
-    Categoria buscarCategoriaPorCodigo(String codigo);
+    Categorias buscarCategoriaPorCodigo(String codigo);
 
 
 

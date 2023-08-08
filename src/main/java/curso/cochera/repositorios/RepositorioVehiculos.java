@@ -10,13 +10,13 @@ import java.util.List;
 
 @Repository
 
-public interface VehiculoRepositorio extends JpaRepository<Vehiculo,Integer> {
+public interface RepositorioVehiculos extends JpaRepository<Vehiculo,Integer> {
 
     @Query(value = "SELECT * FROM vehiculos", nativeQuery = true)
     List<Vehiculo> getAllVehiculos();
 
     @Query(value= "SELECT * FROM vehiculos WHERE patente=?1", nativeQuery = true)
-    String buscarVehiculoPorPatente(String codigo);
+    Vehiculo buscarVehiculoPorPatente(String codigo);
 
 
 

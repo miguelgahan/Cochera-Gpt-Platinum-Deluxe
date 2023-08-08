@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "categorias")
 
-public class Categoria {
+public class Categorias {
     @Id
     @Column (name = "id")
     Integer id;
@@ -19,7 +19,7 @@ public class Categoria {
     String descripcion;
 
     @Column (name = "precio")
-    Double precio;
+    String precio;
 
 
 

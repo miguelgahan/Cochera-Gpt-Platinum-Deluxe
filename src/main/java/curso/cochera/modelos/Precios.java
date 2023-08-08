@@ -17,22 +17,22 @@ public class Precios {
 
     @Column (name = "codigo")
     String codigo;
-    @Column (name = "precioHora")
+    @Column (name = "Hora")
     Double precioHora;
-    @Column (name = "precioDia")
+    @Column (name = "Dia")
     Double precioDia;
-    @Column (name = "precioSemana")
+    @Column (name = "Semana")
     Double precioSemana;
-    @Column (name = "precioMes")
+    @Column (name = "Mes")
     Double precioMes;
 
-    public Precios(Double precioHora, Double precioDia, Double precioSemana, Double precioMes){
+   /* public Precios(Double precioHora, Double precioDia, Double precioSemana, Double precioMes){
         this.precioHora = precioHora;
         this.precioDia = precioDia;
         this.precioSemana = precioSemana;
         this.precioMes = precioMes;
 
-    };
+    };*/
 
 
     public Double getPrecioHora(){
