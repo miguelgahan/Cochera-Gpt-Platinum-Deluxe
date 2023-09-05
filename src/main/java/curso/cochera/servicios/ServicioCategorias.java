@@ -1,6 +1,7 @@
 package curso.cochera.servicios;
 
 import curso.cochera.modelos.Categorias;
+import curso.cochera.modelos.Descuentos;
 import curso.cochera.repositorios.RepositorioCategorias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,10 @@ public class ServicioCategorias {
     //Y hacer la tabla que falta.
 
 
-    public void imprimirCategorias(){
+    public List<Categorias> imprimirCategorias(){
         List<Categorias> categoriasEnLaBase = categoriaRepositorio.getAllCategorias();
         System.out.println(categoriasEnLaBase);
+        return categoriasEnLaBase;
     };
 
     public void imprimirPorCodigo (String codigo){
@@ -41,6 +43,17 @@ public class ServicioCategorias {
         }
         return null;
     };
+
+
+    public boolean nuevaCategoria(Categorias nuevaCategoria){
+        if (nuevaCategoria == null) return false;
+        categoriaRepositorio.save(nuevaCategoria);
+        return true;
+
+    }
+
+
+
 
 //Hacer una funcion que sea como imprimirPorCodigo pero que devuelva un objeto categoria (return en vez de sout y en vez de void Categoria)
 // Y en servicioPrecios hacer imprimirPorCodigo y otra con return y otra buscarPorCodigo.

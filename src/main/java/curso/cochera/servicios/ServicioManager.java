@@ -24,17 +24,20 @@ public class ServicioManager {
 
     public Double cerrarTicket(String patente){
 
-        Vehiculo vehiculo = servicioVehiculos.returnPorPatente(patente);
-
-        if (vehiculo == null){
+        if (patente == null){
             return 0.0;
         }
+
+        Vehiculo vehiculo = servicioVehiculos.returnPorPatente(patente);
+        if(vehiculo == null){
+            return 0.0;
+        }
+
         Categorias categoria = servicioCategorias.returnPorCodigo(vehiculo.getCodigoCategoria());
         Precios precios = servicioPrecios.returnPorCodigo(categoria.getPrecio());
 
         return servicioVehiculos.calcularMontoAcumulado(vehiculo, precios);
 
-        //repasar esto...
 
     }
 

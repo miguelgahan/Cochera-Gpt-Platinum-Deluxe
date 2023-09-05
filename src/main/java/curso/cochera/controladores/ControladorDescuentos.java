@@ -50,6 +50,19 @@ public class ControladorDescuentos {
     }
 
 
+    @PostMapping(value = "actualizar",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public boolean actualizarDescuento(@RequestBody Descuentos descuento){
+
+        try {
+            return servicioDescuentos.actualizarDescuentoPorCodigo(descuento.getCodigo(), descuento.getPorcentajeDescuento());
+        }
+        catch (Exception error){
+            return false;
+        }
+
+    }
+
+
 }
 
 

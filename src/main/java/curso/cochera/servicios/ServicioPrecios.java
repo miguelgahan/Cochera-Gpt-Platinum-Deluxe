@@ -1,5 +1,6 @@
 package curso.cochera.servicios;
 
+import curso.cochera.modelos.Descuentos;
 import curso.cochera.modelos.Precios;
 import curso.cochera.modelos.Vehiculo;
 import curso.cochera.repositorios.RepositorioPrecios;
@@ -42,6 +43,28 @@ public class ServicioPrecios {
         }
     };
 
+
+
+    public boolean actualizarPreciosPorCodigo
+            (String codigo, Double precioHora, Double precioDia, Double precioSemana, Double precioMes){
+        Precios preciosModificados = precioRepositorio.buscarPrecioPorCodigo(codigo);
+        if(preciosModificados != null){
+            preciosModificados.setPrecioHora(precioHora);
+            preciosModificados.setPrecioDia(precioDia);
+            preciosModificados.setPrecioSemana(precioSemana);
+            preciosModificados.setPrecioMes(precioMes);
+        }
+        precioRepositorio.save(preciosModificados);
+        return true;
+    }
+
+
+    public boolean nuevoPrecio(Precios nuevoPrecio){
+        if (nuevoPrecio == null) return false;
+        precioRepositorio.save(nuevoPrecio);
+        return true;
+
+    }
 
 
 }

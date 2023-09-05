@@ -22,18 +22,13 @@ public class ServicioVehiculos {
     }
 
 
-    public void ingresoDeVehiculo(Integer id, String patente, LocalDateTime ingreso, String codigoCategoria){
-
-        Vehiculo nuevoVehiculo = new Vehiculo();
-
-
-
-        nuevoVehiculo.setId(id);
-        nuevoVehiculo.setPatente(patente);
-        nuevoVehiculo.setIngreso(ingreso);
-        nuevoVehiculo.setCodigoCategoria(codigoCategoria);
-
+    public boolean ingresoDeVehiculo(Vehiculo nuevoVehiculo){
+        if (nuevoVehiculo == null){
+            return false;
+        }
+        nuevoVehiculo.setIngreso(LocalDateTime.now());
         vehiculoRepositorio.save(nuevoVehiculo);
+        return true;
 
     }
 
@@ -46,7 +41,7 @@ public class ServicioVehiculos {
         return vehiculosEnLaBase;
     };
 
-        public static Vehiculo returnPorPatente(String codigo){
+        public Vehiculo returnPorPatente(String codigo){
         if(codigo != null && !codigo.isEmpty()) {
             Vehiculo returnVehiculos = vehiculoRepositorio.buscarVehiculoPorPatente(codigo);
             if (returnVehiculos != null) return returnVehiculos;
@@ -101,6 +96,14 @@ public class ServicioVehiculos {
 
     }
 
+    public boolean actualizarVehiculoPorPatente (Vehiculo vehiculo){
+        Vehiculo vehiculoBd = vehiculoRepositorio.buscarVehiculoPorPatente(vehiculo.getPatente());
+        if(vehiculoBd != null){
+            vehiculoBd.setCodigoCategoria(vehiculo.getCodigoCategoria());
+        }
+        vehiculoRepositorio.save(vehiculoBd);
+        return true;
+    }
 
 
     }

@@ -1,5 +1,6 @@
 package curso.cochera.controladores;
 
+import curso.cochera.modelos.Descuentos;
 import curso.cochera.modelos.Vehiculo;
 import curso.cochera.servicios.ServicioVehiculos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,28 @@ public class ControladorVehiculos {
 
 
 
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    @PostMapping(value = "nuevo",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Boolean nuevoVehiculo(@RequestBody Vehiculo nuevoVehiculo){
+
+        try {
+            return servicioVehiculos.ingresoDeVehiculo(nuevoVehiculo);
+        }
+        catch (Exception error){
+            return false;
+        }
+
+    }
+
+    @PostMapping(value = "actualizar",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Boolean actualizarVehiculo(@RequestBody Vehiculo actualizarVehiculo){
+
+        try {
+            return servicioVehiculos.actualizarVehiculoPorPatente(actualizarVehiculo);
+        }
+        catch (Exception error){
+            return false;
+        }
+
+    }
 }

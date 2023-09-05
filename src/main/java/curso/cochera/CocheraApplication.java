@@ -30,6 +30,5 @@ public class CocheraApplication {
 }
 
 
-// Hacer controlador vehiculos y la funcion getAllVehiculos
-// Hacer el post de nuevoVehiculo
-// Hacer en controlador actualizarDescuento y postman
+//Controlador manager, usar cerrarTicket (recibe Vehiculo)
+

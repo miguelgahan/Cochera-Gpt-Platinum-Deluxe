@@ -51,13 +51,14 @@ public class ServicioDescuentos {
 
 
 
-    public void actualizarDescuentoPorCodigo (String codigo, Integer nuevoDescuento){
-        if(nuevoDescuento <1 || nuevoDescuento>100) return;
+    public boolean actualizarDescuentoPorCodigo (String codigo, Integer nuevoDescuento){
+        if(nuevoDescuento <1 || nuevoDescuento>100) return false;
         Descuentos descuentoModificado = descuentoRepositorio.buscarDescuentosPorCodigo(codigo);
         if(descuentoModificado != null){
             descuentoModificado.setPorcentajeDescuento(nuevoDescuento);
         }
         descuentoRepositorio.save(descuentoModificado);
+        return true;
     }
 
     public boolean borrarDescuento(Descuentos descuento){
@@ -68,6 +69,8 @@ public class ServicioDescuentos {
         }
         return false;
     };
+
+
 
 }
 
