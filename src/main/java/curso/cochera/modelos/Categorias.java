@@ -9,6 +9,7 @@ import lombok.Data;
 
 public class Categorias {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
     Integer id;
 

@@ -30,5 +30,6 @@ public class CocheraApplication {
 }
 
 
-//Controlador manager, usar cerrarTicket (recibe Vehiculo)
+//ID´s de base de datos
+// Planear el front-end
 
